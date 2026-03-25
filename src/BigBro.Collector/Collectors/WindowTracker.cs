@@ -4,6 +4,8 @@ using BigBro.Collector.Interop;
 using BigBro.Collector.Pipeline;
 using Microsoft.Extensions.Logging;
 
+using ActivityEvent = BigBro.Common.Models.ActivityEvent;
+
 namespace BigBro.Collector.Collectors;
 
 internal sealed class WindowTracker : IDisposable

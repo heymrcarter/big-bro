@@ -51,8 +51,8 @@ BigBro uses a **two-process design** to work around Windows Session 0 Isolation 
 
 ### Build Machine
 
-- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) (version 8.0.100 or later)
-- Windows 10/11 or Windows Server 2016+ (the project targets `net8.0-windows`)
+- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) (version 8.0.100 or later) — .NET 10 SDK also works
+- Windows, macOS, or Linux (cross-compilation is supported via `EnableWindowsTargeting` in `Directory.Build.props`)
 - Visual Studio 2022 (optional, for IDE development) or just the CLI
 
 ### Target Machines
