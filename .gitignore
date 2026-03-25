@@ -1,0 +1,27 @@
+## .NET
+bin/
+obj/
+publish/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+
+## NuGet
+**/packages/*
+*.nupkg
+**/[Pp]ackages/
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+## Collected data (don't commit analysis data)
+collected/
+*.db
+*.db-wal
+*.db-shm
+merged_events.*
