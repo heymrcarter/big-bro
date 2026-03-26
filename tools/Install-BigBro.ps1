@@ -109,6 +109,16 @@ New-Item -ItemType Directory -Path $InstallDir -Force | Out-Null
 New-Item -ItemType Directory -Path $ConfigDir -Force | Out-Null
 New-Item -ItemType Directory -Path $DataStoreDir -Force | Out-Null
 
+# Grant Users write access to the data directory.
+# The collector process runs as the logged-in user (not SYSTEM), so it
+# needs write permissions to create and update the SQLite database.
+Write-Host "  Granting write access to data directory..."
+$dataAcl = Get-Acl $DataStoreDir
+$dataWriteRule = New-Object System.Security.AccessControl.FileSystemAccessRule(
+    "BUILTIN\Users", "Modify", "ContainerInherit,ObjectInherit", "None", "Allow")
+$dataAcl.AddAccessRule($dataWriteRule)
+Set-Acl $DataStoreDir $dataAcl
+
 # Copy binaries
 Write-Host "  Copying binaries to $InstallDir..."
 Copy-Item "$SourcePath\*" -Destination $InstallDir -Recurse -Force
